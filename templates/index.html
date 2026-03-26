@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEO LALOMBRIZ | ubicaciones inteligentes</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Font Awesome para iconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        /* degradado elegante: carbón a gráfito con un sutil toque dorado */
+        .gradient-bg {
+            background: linear-gradient(135deg, #1e1e2f 0%, #2a2a40 100%);
+        }
+
+        /* fondo para sección hero con textura sutil */
+        .hero-pattern {
+            background-color: #1e1e2f;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%232d2d44' fill-opacity='0.4'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4z'/%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        .card-hover {
+            transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 30px -12px rgba(0, 0, 0, 0.35);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .pulse-subtle {
+            animation: pulseSoft 3s infinite;
+        }
+
+        @keyframes pulseSoft {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .border-gold {
+            border-color: #c6a35c;
+        }
+        .text-gold {
+            color: #c6a35c;
+        }
+        .bg-gold {
+            background-color: #c6a35c;
+        }
+        .hover-gold:hover {
+            background-color: #b08c4b;
+        }
+    </style>
+</head>
+<body class="bg-[#faf9f7] text-[#2a2a2a] antialiased">
+
+    <!-- Navbar refinada -->
+    <nav class="bg-[#1e1e2f]/90 backdrop-blur-md text-white py-4 sticky top-0 z-50 shadow-md border-b border-white/10">
+        <div class="container mx-auto px-6 flex justify-between items-center">
+            <!-- logo minimalista -->
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-map-marked-alt text-2xl text-[#c6a35c]"></i>
+                <span class="text-2xl font-light tracking-wide">GEO<span class="font-bold text-[#c6a35c]">LALOMBRIZ</span></span>
+            </div>
+            
+            <!-- menú escritorio -->
+            <div class="hidden md:flex space-x-10 text-sm font-medium uppercase tracking-wider">
+                <a href="#inicio" class="hover:text-[#c6a35c] transition duration-300">Inicio</a>
+                <a href="#servicios" class="hover:text-[#c6a35c] transition duration-300">Servicios</a>
+                <a href="#ubicaciones" class="hover:text-[#c6a35c] transition duration-300">Ubicaciones</a>
+                <a href="#contacto" class="hover:text-[#c6a35c] transition duration-300">Contacto</a>
+            </div>
+            
+            <button class="md:hidden text-2xl focus:outline-none" id="menuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+        
+        <!-- menú móvil -->
+        <div class="md:hidden hidden px-6 pt-4 pb-3 bg-[#2a2a40] border-t border-white/5" id="mobileMenu">
+            <div class="flex flex-col space-y-3 text-sm font-medium">
+                <a href="#inicio" class="hover:text-[#c6a35c] transition py-2">Inicio</a>
+                <a href="#servicios" class="hover:text-[#c6a35c] transition py-2">Servicios</a>
+                <a href="#ubicaciones" class="hover:text-[#c6a35c] transition py-2">Ubicaciones</a>
+                <a href="#contacto" class="hover:text-[#c6a35c] transition py-2">Contacto</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section con textura e imagen de fondo elegante -->
+    <section id="inicio" class="hero-pattern text-white relative overflow-hidden">
+        <!-- imagen de fondo decorativa (estilo elegante) -->
+        <div class="absolute inset-0 opacity-10">
+            <img src="https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?q=80&w=1888&auto=format&fit=crop" alt="mapa mundial" class="w-full h-full object-cover">
+        </div>
+        <div class="relative z-10 container mx-auto px-6 py-24 md:py-32 flex flex-col md:flex-row items-center gap-12">
+            <div class="md:w-1/2">
+                <span class="inline-block px-4 py-1 bg-[#c6a35c]/20 text-[#c6a35c] text-sm font-semibold uppercase tracking-wider rounded-full mb-6">localización premium</span>
+                <h1 class="text-4xl md:text-6xl font-extrabold leading-tight mb-6">
+                    Precisión <span class="text-[#c6a35c]">geoespacial</span> para un mundo conectado
+                </h1>
+                <p class="text-xl text-gray-300 mb-8 font-light leading-relaxed">
+                    Soluciones de geolocalización de alta gama para empresas, viajeros y servicios profesionales. Descubre la nueva dimensión de la ubicación inteligente.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-5">
+                    <button class="bg-[#c6a35c] hover:bg-[#b08c4b] text-[#1e1e2f] font-semibold py-3 px-8 rounded-md text-lg transition shadow-xl flex items-center justify-center gap-2" id="detectarBtn">
+                        <i class="fas fa-location-dot"></i> Detectar ubicación
+                    </button>
+                    <button class="border border-white/30 hover:border-[#c6a35c] hover:text-[#c6a35c] text-white font-semibold py-3 px-8 rounded-md text-lg transition flex items-center justify-center gap-2" id="explorarBtn">
+                        <i class="fas fa-globe"></i> Explorar mapa
+                    </button>
+                </div>
+                <div class="mt-6 text-sm text-gray-400" id="ubicacionInfo"></div>
+            </div>
+            
+            <div class="md:w-1/2 flex justify-center">
+                <div class="relative">
+                    <!-- imagen principal elegante (Unsplash ciudad) -->
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1774&auto=format&fit=crop" alt="skyline lujo" class="rounded-2xl shadow-2xl w-full max-w-md border-4 border-white/10">
+                    <!-- badge flotante -->
+                    <div class="absolute -bottom-4 -left-4 glass-card rounded-lg px-5 py-3 text-white flex items-center gap-3">
+                        <i class="fas fa-map-pin text-[#c6a35c] text-xl"></i>
+                        <div>
+                            <p class="text-xs uppercase tracking-wider opacity-75">precisión</p>
+                            <p class="font-bold">±1.5m</p>
+                        </div>
+                    </div>
+                    <!-- badge flotante 2 -->
+                    <div class="absolute -top-4 -right-4 glass-card rounded-lg px-5 py-3 text-white flex items-center gap-3">
+                        <i class="fas fa-globe-americas text-[#c6a35c] text-xl"></i>
+                        <div>
+                            <p class="text-xs uppercase tracking-wider opacity-75">cobertura</p>
+                            <p class="font-bold">98%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Servicios - tonos claros, tipografía refinada -->
+    <section id="servicios" class="py-28 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-4xl md:text-5xl font-light text-[#1e1e2f] mb-4">Servicios <span class="font-bold text-[#c6a35c]">exclusivos</span></h2>
+                <div class="w-20 h-0.5 bg-[#c6a35c] mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600">Tecnología de posicionamiento diseñada para los estándares más exigentes.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
+                <!-- Servicio 1 -->
+                <div class="group bg-[#f8f8fc] rounded-2xl p-8 shadow-sm hover:shadow-xl card-hover border border-gray-100">
+                    <div class="bg-[#c6a35c]/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i class="fas fa-map-pin text-3xl text-[#c6a35c]"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-[#1e1e2f]">Geocodificación absoluta</h3>
+                    <p class="text-gray-500 leading-relaxed">Conversión bidireccional de direcciones a coordenadas con precisión milimétrica y datos contextuales.</p>
+                </div>
+                
+                <!-- Servicio 2 -->
+                <div class="group bg-[#f8f8fc] rounded-2xl p-8 shadow-sm hover:shadow-xl card-hover border border-gray-100">
+                    <div class="bg-[#c6a35c]/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i class="fas fa-route text-3xl text-[#c6a35c]"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-[#1e1e2f]">Rutas inteligentes</h3>
+                    <p class="text-gray-500 leading-relaxed">Optimización en tiempo real con machine learning: tráfico, climatología y preferencias de usuario.</p>
+                </div>
+                
+                <!-- Servicio 3 -->
+                <div class="group bg-[#f8f8fc] rounded-2xl p-8 shadow-sm hover:shadow-xl card-hover border border-gray-100">
+                    <div class="bg-[#c6a35c]/10 w-16 h-16 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition">
+                        <i class="fas fa-chart-line text-3xl text-[#c6a35c]"></i>
+                    </div>
+                    <h3 class="text-2xl font-semibold mb-3 text-[#1e1e2f]">Geointeligencia de mercado</h3>
+                    <p class="text-gray-500 leading-relaxed">Análisis de ubicación estratégica para expansión de negocio, zonas de influencia y patrones de consumo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Ubicaciones Destacadas con imágenes espectaculares -->
+    <section id="ubicaciones" class="py-28 bg-[#f4f2ef]">
+        <div class="container mx-auto px-6">
+            <div class="text-center max-w-3xl mx-auto mb-20">
+                <h2 class="text-4xl md:text-5xl font-light text-[#1e1e2f] mb-4">Lugares <span class="font-bold text-[#c6a35c">icónicos</span></h2>
+                <div class="w-20 h-0.5 bg-[#c6a35c] mx-auto mb-6"></div>
+                <p class="text-lg text-gray-600">Explora nuestra selección de enclaves extraordinarios.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="ubicacionesContainer">
+                <!-- JS inyectará aquí -->
+            </div>
+            
+            <div class="text-center mt-16">
+                <button class="border-2 border-[#c6a35c] text-[#c6a35c] hover:bg-[#c6a35c] hover:text-[#1e1e2f] font-semibold py-3 px-10 rounded-md transition shadow-sm inline-flex items-center gap-2" id="cargarMasBtn">
+                    <i class="fas fa-compass"></i> Descubrir más
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mapa elegante con imagen real -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="relative rounded-3xl overflow-hidden shadow-2xl aspect-[21/9]">
+                <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=1974&auto=format&fit=cropp" alt="mapa estilo topográfico" class="w-full h-full object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-[#1e1e2f]/60 via-transparent to-transparent"></div>
+                <div class="absolute bottom-8 left-8 text-white">
+                    <h3 class="text-3xl font-bold mb-2">Cartografía dinámica</h3>
+                    <p class="text-lg text-gray-200 mb-4">Visualiza datos geoespaciales en 3D con alta fidelidad.</p>
+                    <button class="bg-[#c6a35c] hover:bg-[#b08c4b] text-[#1e1e2f] font-medium py-2 px-6 rounded-md transition inline-flex items-center gap-2" id="abrirMapaBtn">
+                        <i class="fas fa-expand-alt"></i> Explorar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto con elegancia oscura -->
+    <section id="contacto" class="py-28 bg-[#1e1e2f] text-white">
+        <div class="container mx-auto px-6">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-4xl md:text-5xl font-light mb-4">Conversemos<span class="text-[#c6a35c] font-bold">.</span></h2>
+                    <div class="w-20 h-0.5 bg-[#c6a35c] mx-auto mb-6"></div>
+                    <p class="text-gray-400 text-lg">Cuéntanos tu proyecto y te ayudaremos a situarlo en el mundo.</p>
+                </div>
+                
+                <form id="contactForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <input type="text" placeholder="Nombre completo" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:border-[#c6a35c] text-white placeholder:text-gray-500" id="nombre" required>
+                        <input type="email" placeholder="Correo electrónico" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:border-[#c6a35c] text-white placeholder:text-gray-500" id="email" required>
+                    </div>
+                    <input type="text" placeholder="Ubicación de interés (opcional)" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:border-[#c6a35c] text-white placeholder:text-gray-500" id="ubicacionInteres">
+                    <textarea rows="5" placeholder="Mensaje" class="w-full px-5 py-4 bg-white/5 border border-white/10 rounded-md focus:outline-none focus:border-[#c6a35c] text-white placeholder:text-gray-500" id="mensaje" required></textarea>
+                    
+                    <div class="text-center pt-4">
+                        <button type="submit" class="bg-[#c6a35c] hover:bg-[#b08c4b] text-[#1e1e2f] font-semibold py-4 px-14 rounded-md transition text-lg shadow-xl inline-flex items-center gap-3">
+                            <i class="fas fa-paper-plane"></i> Enviar mensaje
+                        </button>
+                    </div>
+                    
+                    <div id="formMensaje" class="text-center font-medium"></div>
+                </form>
+                
+                <div class="flex flex-wrap justify-center gap-10 mt-20 text-gray-300">
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-phone-alt text-[#c6a35c]"></i>
+                        <span>+34 912 345 678</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-envelope text-[#c6a35c]"></i>
+                        <span>hello@geomike.com</span>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <i class="fas fa-map-marker-alt text-[#c6a35c]"></i>
+                        <span>Madrid · Londres · NY</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer minimalista -->
+    <footer class="bg-[#151523] text-gray-500 py-10 border-t border-white/5">
+        <div class="container mx-auto px-6 text-center">
+            <p class="text-sm tracking-wide">© 2025 GEO LALOMBRIZ · geolocalización inteligente</p>
+            <div class="flex justify-center space-x-6 mt-5">
+                <a href="#" class="hover:text-[#c6a35c] transition text-lg"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="hover:text-[#c6a35c] transition text-lg"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="hover:text-[#c6a35c] transition text-lg"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-[#c6a35c] transition text-lg"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Base de datos visual para ubicaciones (imágenes Unsplash elegantes + iconos)
+        const ubicacionesData = [
+            { nombre: "Torre Eiffel", ciudad: "París", pais: "Francia", tipo: "Patrimonio", img: "https://images.unsplash.com/photo-1511739001486-6bfe10ce785f?q=80&w=1887&auto=format&fit=crop" },
+            { nombre: "Estatua Libertad", ciudad: "Nueva York", pais: "EE.UU.", tipo: "Monumento", img: "https://images.unsplash.com/photo-1565130838609-c3a86655db61?q=80&w=1887&auto=format&fit=crop" },
+            { nombre: "Coliseo", ciudad: "Roma", pais: "Italia", tipo: "Anfiteatro", img: "https://images.unsplash.com/photo-1552832230-c0197dd311b5?q=80&w=1896&auto=format&fit=crop" },
+            { nombre: "Machu Picchu", ciudad: "Cusco", pais: "Perú", tipo: "Ciudad inca", img: "https://images.unsplash.com/photo-1587595431973-160d0d94add1?q=80&w=1887&auto=format&fit=crop" },
+            { nombre: "Burj Khalifa", ciudad: "Dubái", pais: "EAU", tipo: "Rascacielos", img: "https://images.unsplash.com/photo-1512453979798-5ea266f8880c?q=80&w=1770&auto=format&fit=crop" },
+            { nombre: "Taj Mahal", ciudad: "Agra", pais: "India", tipo: "Mausoleo", img: "https://images.unsplash.com/photo-1564507592333-c60657eea523?q=80&w=1771&auto=format&fit=crop" },
+            { nombre: "Sagrada Familia", ciudad: "Barcelona", pais: "España", tipo: "Basílica", img: "https://images.unsplash.com/photo-1586693048983-9eb230dd9b81?q=80&w=1770&auto=format&fit=crop" },
+            { nombre: "Cristo Redentor", ciudad: "Río", pais: "Brasil", tipo: "Estatua", img: "https://images.unsplash.com/photo-1483729552389-64228358e249?q=80&w=1770&auto=format&fit=crop" },
+            { nombre: "Acrópolis", ciudad: "Atenas", pais: "Grecia", tipo: "Yacimiento", img: "https://images.unsplash.com/photo-1603565816030-6b389eeb23cb?q=80&w=1770&auto=format&fit=crop" }
+        ];
+
+        let ubicacionesMostradas = 6;
+        const container = document.getElementById('ubicacionesContainer');
+        const cargarMasBtn = document.getElementById('cargarMasBtn');
+
+        function renderizarUbicaciones() {
+            const seleccion = ubicacionesData.slice(0, ubicacionesMostradas);
+            container.innerHTML = seleccion.map(l => `
+                <div class="group relative rounded-xl overflow-hidden shadow-lg card-hover h-80">
+                    <img src="${l.img}" alt="${l.nombre}" class="w-full h-full object-cover group-hover:scale-105 transition duration-700">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"></div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <p class="text-sm uppercase tracking-wider text-[#c6a35c] font-semibold">${l.tipo}</p>
+                        <h3 class="text-2xl font-bold mt-1">${l.nombre}</h3>
+                        <p class="text-gray-200 text-sm mt-1"><i class="fas fa-map-marker-alt mr-1 text-[#c6a35c]"></i>${l.ciudad}, ${l.pais}</p>
+                    </div>
+                </div>
+            `).join('');
+            cargarMasBtn.style.display = ubicacionesMostradas >= ubicacionesData.length ? 'none' : 'inline-flex';
+        }
+
+        renderizarUbicaciones();
+
+        cargarMasBtn.addEventListener('click', () => {
+            ubicacionesMostradas += 3;
+            renderizarUbicaciones();
+        });
+
+        // menú móvil
+        const menuBtn = document.getElementById('menuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+        document.querySelectorAll('#mobileMenu a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+
+        // ubicación
+        const ubicacionInfo = document.getElementById('ubicacionInfo');
+        document.getElementById('detectarBtn').addEventListener('click', () => {
+            ubicacionInfo.innerHTML = '<i class="fas fa-circle-notch fa-spin mr-2"></i>Obteniendo coordenadas...';
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    pos => ubicacionInfo.innerHTML = `<i class="fas fa-check-circle text-[#c6a35c] mr-2"></i>Lat: ${pos.coords.latitude.toFixed(4)} · Lon: ${pos.coords.longitude.toFixed(4)}`,
+                    () => ubicacionInfo.innerHTML = '<i class="fas fa-exclamation-triangle text-amber-400 mr-2"></i>No se pudo acceder a la ubicación'
+                );
+            } else {
+                ubicacionInfo.innerHTML = '<i class="fas fa-exclamation-triangle text-amber-400 mr-2"></i>Geolocalización no soportada';
+            }
+        });
+
+        document.getElementById('explorarBtn').addEventListener('click', () => document.getElementById('ubicaciones').scrollIntoView({ behavior: 'smooth' }));
+        document.getElementById('abrirMapaBtn').addEventListener('click', () => alert('🗺️ Próximamente: visualizador cartográfico avanzado'));
+
+        // contacto
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const formMensaje = document.getElementById('formMensaje');
+            formMensaje.innerHTML = '<i class="fas fa-check-circle text-[#c6a35c] mr-2"></i>Mensaje recibido. Te escribiremos pronto.';
+            formMensaje.classList.add('text-[#c6a35c]');
+            e.target.reset();
+            setTimeout(() => formMensaje.innerHTML = '', 4000);
+        });
+
+        // smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
